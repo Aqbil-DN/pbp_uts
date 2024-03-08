@@ -26,10 +26,7 @@ func main() {
 		AllowCredentials: true,
 	})
 
-	// Start Server
 	http.Handle("/", router)
 
-	log.Println("Starting " + os.Getenv("APP_NAME"))
-	log.Println("Connected to port 8081")
 	log.Fatal(http.ListenAndServe(":8081", corsHandler.Handler(router)))
 }
